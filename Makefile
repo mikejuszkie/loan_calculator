@@ -7,16 +7,16 @@
 CC = gcc
 CFLAGS = -Wall -g
 BUILD_DIR = build
-OUTPUT = loancalc
+OUTPUT = loan_calculator
 
-build: main.o loans.o
+build: build/main.o build/loans.o
 	$(CC) $(CFLAGS) -o $(OUTPUT) $(BUILD_DIR)/main.o $(BUILD_DIR)/loans.o
 
-main.o: main.c
+build/main.o: main.c
 	$(CC) -c $(CFLAGS) -o $(BUILD_DIR)/main.o main.c
 
 
-loans.o: loans.h loans.c
+build/loans.o: loans.h loans.c
 	$(CC) -c $(CFLAGS) -o $(BUILD_DIR)/loans.o loans.c
 
 clean:

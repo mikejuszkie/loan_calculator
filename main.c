@@ -53,7 +53,7 @@ int main()
       printf("Eneter a name for account %d :\n", i);
       
       
-      if (scanf("%s", &account[i].name) < 0 )
+      if ( scanf("%s", &account[i].name) == *"/r" )
           break;
       
       printf("Eneter inital loan ammount for account %d :\n", i);
@@ -70,7 +70,7 @@ int main()
   
   for(int i = 0 ; i <= g_number_of_accounts - 1; i++)
     {
-      printf("\t%s\t\t$%.2f\t\t%.2f\%\n", account[i].name,
+      printf("\t%10s\t\t$%10.2f\t\t%10.2f\%\n", account[i].name,
                 account[i].ammount, account[i].rate);
     }
 
