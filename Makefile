@@ -20,7 +20,7 @@ build/loans.o: loans.h loans.c
 	$(CC) -c $(CFLAGS) -o $(BUILD_DIR)/loans.o loans.c
 
 clean:
-	rm -r -f $(BUILD_DIR)/*
+	rm -r -f $(BUILD_DIR)/*.o
 	rm $(OUTPUT)
 
 rebuild: clean build
