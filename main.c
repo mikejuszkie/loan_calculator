@@ -16,44 +16,22 @@
 #include "loans.h"
 
 // initialize gloabal variables
-float g_total_principle = 0;
-float g_total_interest = 0;
-float g_account_total = 0;
+float g_total_principle = 0.00;
+float g_total_interest = 0.00;
+float g_account_total = 0.00;
 int g_number_of_accounts = 0;
-float g_monthly_payment = 0;
+float g_monthly_payment = 0.00;
 
-
+struct loan account [MAX_NUMBER_OF_ACCOUNTS];
 
 int main()
 {
-
-  /*  
-    do{
-    printf("Please enter the number of accounts. (0 < n <= %d) :", MAX_ACCOUNTS);
-    scanf("%d", &g_number_of_accounts);
-    
-    if (g_number_of_accounts <= 0 && g_number_of_accounts > MAX_ACCOUNTS)
-      {
-        printf("\nSorry, Invalid input. Please try again.\n");
-        continue;
-      }
-  }while(g_number_of_accounts <= 0 && g_number_of_accounts > MAX_ACCOUNTS);
-  
-  */
-  
-  
-  
-  struct loan account [MAX_NUMBER_OF_ACCOUNTS];
-  
-  //printf("number of accounts : %d\n", g_number_of_accounts);
-  
-  
   for(int i =0 ; i <= MAX_NUMBER_OF_ACCOUNTS - 1; i++)
     {
-      printf("Eneter a name for account %d :\n", i);
+      printf("Eneter a name for account %d (enter \"done\" to finish):\n", i);
+      scanf("%s", &account[i].name);
       
-      
-      if ( scanf("%s", &account[i].name) == *"/r" )
+      if ( *account[i].name == *"done" )
           break;
       
       printf("Eneter inital loan ammount for account %d :\n", i);
@@ -64,7 +42,6 @@ int main()
       g_number_of_accounts++;
       
     }
-
   printf("\n\n\n\tAccount Name\t\tInital Value\t\tInterest Rate\n");
   printf("\t---------------------------------------------------------------\n");
   
