@@ -22,7 +22,7 @@
 // Set the maximum number of
 // accounts for the programm
 #ifndef MAX_NUMBER_OF_ACCOUNTS
-  #define MAX_NUMBER_OF_ACCOUNTS 3 
+  #define MAX_NUMBER_OF_ACCOUNTS 10
  #endif
 //  
 #ifndef MAX_ACCOUNT_NAME_LENGTH
