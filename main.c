@@ -60,7 +60,7 @@ int main()
 
   for(int i = 0 ; i < g_number_of_accounts ; i++)
     {
-      printf("\nPlease enter your monthly controbution to %s:", account[i].name);
+      printf("\nPlease enter your monthly contribution to %s:", account[i].name);
       scanf("%f", &g_monthly_payment);
 
       g_total_payments = Calculate_Payments(account, i, g_monthly_payment);
