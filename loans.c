@@ -24,7 +24,7 @@ float Calculate_Interest(struct loan *account,
 {
   float total = (account[account_number].principle *
 		 ( (account[account_number].rate / 100 )/ 365) ) * number_of_days;
-  printf("interest %f ", total);
+  printf("interest $%10.2f ", total);
   
   return total;
 }
@@ -34,13 +34,10 @@ uint16_t Calculate_Payments(struct loan* account,
 			    uint8_t account_number,
 			    float payment)
 {
-
-  printf("\t%-20s|$%19.2f|%20.2f%%\n", account[account_number].
-	 name,account[account_number].ammount, account[account_number].rate);
   
   int number_of_payments = 0;
   int counter = 0;
-  printf("%f", account[account_number].principle);
+
   while(account[account_number].principle > 0)
     {
       counter++;
@@ -49,9 +46,11 @@ uint16_t Calculate_Payments(struct loan* account,
       number_of_payments++;
       printf("Payments: %4d", number_of_payments);
       printf("\tPrinciple: %10.2f\n", account[account_number].principle);
-      if(counter>200)
-	break;
-
+      if(account[account_number].interest >= payment)
+	{
+	  printf("payment does not meet minimum payment requerments");
+	  break;
+	}
     }
 
  
