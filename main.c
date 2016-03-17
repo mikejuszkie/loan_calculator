@@ -39,7 +39,8 @@ int main()
       
       printf("Eneter inital loan ammount for account %d :\n", i);
       scanf("%f", &account[i].ammount);
-
+      account[i].principle = account[i].ammount;
+      
       printf("Eneter interest rate for account %d :\n", i);
       scanf("%f", &account[i].rate);
       g_number_of_accounts++;
@@ -57,10 +58,9 @@ int main()
 
   printf("\nPlease enter your monthly controbution :");
   scanf("%f", &g_monthly_payment);
+
+  Calculate_Payments(account, 0, g_monthly_payment);
   
-//  uint16_t total_payments = Calculate_Payments(0, g_monthly_payment);
-  
-  //printf("\ntotal number of payments: %d \n", total_payments);
-  
+
   return 0;
 }

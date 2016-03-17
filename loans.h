@@ -43,14 +43,14 @@
 // function prototype for
 // calculating interest
  #ifndef CALCULATE_INTEREST_DEF
-  float Calculate_Interest(struct loan* account,
+  float Calculate_Interest(struct loan *account,
 			   uint8_t account_number,
 			   uint16_t number_of_days);
   #define CALCULATE_INTEREST_DEF
  #endif
 
  #ifndef CALCULATE_PAYMENTS_DEF
-  uint16_t Calculate_Payments(struct loan* account,
+  uint16_t Calculate_Payments(struct loan *account,
 			      uint8_t account_number,
 			      float payment);
   #define CALCULATE_PAYMENTS_DEF
