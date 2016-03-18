@@ -48,13 +48,13 @@ int main()
       g_number_of_accounts++;
       
     }
-  printf("\n\n\n\t%-20s|%-15s|%-12s\n", "Account Name",
+  printf("\n\n\n\t%-20s| %-15s| %-12s\n", "Account Name",
 	 "Inital Ammount","Interest Rate" );
-  printf("\t--------------------------------------------------\n");
+  printf("\t-----------------------------------------------------\n");
   
   for(int i = 0 ; i < g_number_of_accounts ; i++)
     {
-      printf("\t%-20s|$%13.2f |%10.2f%%\n", account[i].name,
+      printf("\t%-20s| $%13.2f | %7.2f%%\n", account[i].name,
                 account[i].ammount, account[i].rate);
     }
 
