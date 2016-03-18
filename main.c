@@ -48,13 +48,13 @@ int main()
       g_number_of_accounts++;
       
     }
-  printf("\n\n\n\t%-20s|%-20s|%-20s\n", "Account Name",
+  printf("\n\n\n\t%-20s|%-15s|%-12s\n", "Account Name",
 	 "Inital Ammount","Interest Rate" );
-  printf("\t---------------------------------------------------------------\n");
+  printf("\t--------------------------------------------------\n");
   
   for(int i = 0 ; i < g_number_of_accounts ; i++)
     {
-      printf("\t%-20s|$%19.2f|%20.2f%%\n", account[i].name,
+      printf("\t%-20s|$%13.2f |%10.2f%%\n", account[i].name,
                 account[i].ammount, account[i].rate);
     }
 
@@ -74,20 +74,21 @@ int main()
       
       account[i].total_paid = ( (float)account[i].monthly_payment * account[i].payments ) + account[i].principle;
 	
-      printf("Total cost of %s : $%10.2f \n", account[i].name, g_total_cost);
+      // printf("Total cost of %s : $%10.2f \n", account[i].name, g_total_cost);
     }
 
 
-  printf("%-20s|%-20s|%-20s|%-20s|%-20s|%-20s\n","Account","Loan Ammount",
-	 "interest", "monthly payments", "number of payments", "Total Paid Back");
-  printf("-----------------------------------------------------------------------------------------------------------------------------\n");
+  printf("\n%-20s| %-14s| %-14s| %-17s| %-19s| %-20s\n","Account","Loan Ammount",
+	 "Interest Rate", "Monthly Payments", "Number of Payments", "Total Paid Back");
+  printf("--------------------------------------------------------------------------------------------------------------\n");
 
   for(int i = 0 ; i < g_number_of_accounts ; i++)
     {
       
-      printf("%-20s|$%19.2f|%19.2f%%|$%19.2f|%20d|$%19.2f\n", account[i].name,
-	     account[i].ammount, account[i].rate, account[i].monthly_payment,
-	     account[i].payments, account[i].total_paid );
+      printf("%-20s| $%12.2f |%11.2f%%   | $%15.2f |%12d        | $%14.2f\n",
+	     account[i].name,account[i].ammount, account[i].rate,
+	     account[i].monthly_payment,account[i].payments,
+	     account[i].total_paid );
     
     }
 
