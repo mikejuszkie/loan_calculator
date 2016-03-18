@@ -63,7 +63,7 @@ int main()
       printf("\nPlease enter your monthly contribution to %s:", account[i].name);
       scanf("%f", &account[i].monthly_payment);
 
-      while(account[i].monthly_payment <=  (account[i].ammount * (account[i].rate / 100)))
+      while(account[i].monthly_payment <= 1.25 * ( 30* (( account[i].ammount * (account[i].rate / 100)) / 365 )))
 	{
 	  printf("Payment amount is insuficient. Please try again.\n");
 	  scanf("%f", &account[i].monthly_payment); 
@@ -80,7 +80,7 @@ int main()
 
   printf("%-20s|%-20s|%-20s|%-20s|%-20s|%-20s\n","Account","Loan Ammount",
 	 "interest", "monthly payments", "number of payments", "Total Paid Back");
-  printf("----------------------------------------------------------------------------------------------------------------------------\n");
+  printf("-----------------------------------------------------------------------------------------------------------------------------\n");
 
   for(int i = 0 ; i < g_number_of_accounts ; i++)
     {
