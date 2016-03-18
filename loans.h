@@ -37,7 +37,9 @@
    float rate;
    float interest;
    float principle;
-   float ballance;
+   float monthly_payment;
+   int payments;
+   float total_paid;
  };
 
 // function prototype for

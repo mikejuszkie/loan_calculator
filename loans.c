@@ -35,26 +35,24 @@ uint16_t Calculate_Payments(struct loan* account,
 			    float payment)
 {
   
-  int number_of_payments = 0;
-  int counter = 0;
+  account[account_number].payments = 0;
+  
 
+  
   while(account[account_number].principle > 0)
     {
-      counter++;
+
       account[account_number].interest = Calculate_Interest(account, account_number, 30);
-      account[account_number].principle = account[account_number].principle + (account[account_number].interest - payment);
-      number_of_payments++;
-      printf("Payments: %4d", number_of_payments);
+      account[account_number].principle = account[account_number].principle +
+	(account[account_number].interest - payment);
+      account[account_number].payments++;
+      printf("Payments: %4d", account[account_number].payments);
       printf("\tPrinciple: %10.2f\n", account[account_number].principle);
-      if(account[account_number].interest >= payment)
-	{
-	  printf("payment does not meet minimum payment requerments");
-	  break;
-	}
+
     }
 
  
   
-  return number_of_payments;
+  return account[account_number].payments;
 }
 

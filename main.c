@@ -61,13 +61,36 @@ int main()
   for(int i = 0 ; i < g_number_of_accounts ; i++)
     {
       printf("\nPlease enter your monthly contribution to %s:", account[i].name);
-      scanf("%f", &g_monthly_payment);
+      scanf("%f", &account[i].monthly_payment);
 
-      g_total_payments = Calculate_Payments(account, i, g_monthly_payment);
-      g_total_cost = ( (float)g_monthly_payment * g_total_payments ) + account[i].principle;
+      while(account[i].monthly_payment <=  (account[i].ammount * (account[i].rate / 100)))
+	{
+	  printf("Payment amount is insuficient. Please try again.\n");
+	  scanf("%f", &account[i].monthly_payment); 
+	  
+	}
+
+      Calculate_Payments(account , i , account[i].monthly_payment);
+      
+      account[i].total_paid = ( (float)account[i].monthly_payment * account[i].payments ) + account[i].principle;
 	
       printf("Total cost of %s : $%10.2f \n", account[i].name, g_total_cost);
     }
 
+
+  printf("%-20s|%-20s|%-20s|%-20s|%-20s|%-20s\n","Account","Loan Ammount",
+	 "interest", "monthly payments", "number of payments", "Total Paid Back");
+  printf("----------------------------------------------------------------------------------------------------------------------------\n");
+
+  for(int i = 0 ; i < g_number_of_accounts ; i++)
+    {
+      
+      printf("%-20s|$%19.2f|%19.2f%%|$%19.2f|%20d|$%19.2f\n", account[i].name,
+	     account[i].ammount, account[i].rate, account[i].monthly_payment,
+	     account[i].payments, account[i].total_paid );
+    
+    }
+
+  
   return 0;
 }
