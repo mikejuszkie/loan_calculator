@@ -24,7 +24,9 @@
 #ifndef MAX_NUMBER_OF_ACCOUNTS
   #define MAX_NUMBER_OF_ACCOUNTS 10
  #endif
-//  
+
+// Sets the max number of characters
+// used in an account's name
 #ifndef MAX_ACCOUNT_NAME_LENGTH
   #define MAX_ACCOUNT_NAME_LENGTH 10
  #endif
@@ -51,6 +53,9 @@
   #define CALCULATE_INTEREST_DEF
  #endif
 
+
+// function prototype for
+// calculating number of payments 
  #ifndef CALCULATE_PAYMENTS_DEF
   uint16_t Calculate_Payments(struct loan *account,
 			      uint8_t account_number,
@@ -58,9 +63,10 @@
   #define CALCULATE_PAYMENTS_DEF
  #endif
 
-  
+// function proto type to display
+// a table of the accounts
  #ifndef DISPLAY_TABLE_DEF
-  void Display_Table();
+  void Display_Table(struct loan *account);
   #define DISPLAY_TABLE_DEF
  #endif
 
