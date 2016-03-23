@@ -16,15 +16,7 @@
 #include "loans.h"
 
 // initialize gloabal variables
-float g_total_principle = 0.00;
-float g_total_interest = 0.00;
-float g_account_total = 0.00;
-int g_number_of_accounts = 0;
-float g_monthly_payment = 0.00;
-int g_total_payments = 0;
-float g_total_cost = 0.00;
-
-int length;
+uint8_t g_number_of_accounts = 0;
 
 struct loan account [MAX_NUMBER_OF_ACCOUNTS];
 
@@ -34,10 +26,16 @@ int main()
     {
       printf("Enter a name for account %d (enter \"done\" to finish):\n", i);
       scanf("%s", account[i].name);
-            
+
+// TODO: BUG
+// Any name that begins with the letter D will pass this statment
+
       if ( *account[i].name == *"done" )
 	  break;
 
+// TODO: BUG
+// Print out of large numbers result in incorrect printout.
+// Subition of a string for float variables results in multiple submissions.
       
       printf("Enter inital loan ammount for account %d :\n", i);
       scanf("%f", &account[i].ammount);
@@ -63,7 +61,7 @@ int main()
       printf("\nPlease enter your monthly contribution to %s:", account[i].name);
       scanf("%f", &account[i].monthly_payment);
 
-      while(account[i].monthly_payment <= 1.25 * ( 30* (( account[i].ammount * (account[i].rate / 100)) / 365 )))
+      while(account[i].monthly_payment <= 1.25*(30*((account[i].ammount*(account[i].rate/100))/365)))
 	{
 	  printf("Payment amount is insuficient. Please try again.\n");
 	  scanf("%f", &account[i].monthly_payment); 
@@ -73,14 +71,16 @@ int main()
       Calculate_Payments(account , i , account[i].monthly_payment);
       
       account[i].total_paid = ( (float)account[i].monthly_payment * account[i].payments ) + account[i].principle;
-	
+
+      // uncomment Line below for debug. 
       // printf("Total cost of %s : $%10.2f \n", account[i].name, g_total_cost);
     }
 
-
+  // Print out final table of calculations 
   printf("\n%-20s| %-14s| %-14s| %-17s| %-19s| %-20s\n","Account","Loan Ammount",
 	 "Interest Rate", "Monthly Payments", "Number of Payments", "Total Paid Back");
-  printf("--------------------------------------------------------------------------------------------------------------\n");
+  printf("-----------------------------------------------------------");
+  printf("---------------------------------------------------\n");
 
   for(int i = 0 ; i < g_number_of_accounts ; i++)
     {
