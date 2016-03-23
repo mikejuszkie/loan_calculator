@@ -20,7 +20,7 @@
 
 float Calculate_Interest(struct loan *account,
 			 uint8_t account_number,
-			 uint16_t number_of_days)
+			 uint8_t number_of_days)
 {
   float total = (account[account_number].principle *
 		 ( (account[account_number].rate / 100 )/ 365) ) * number_of_days;
