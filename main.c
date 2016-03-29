@@ -15,7 +15,7 @@
 // include custom headders
 #include "loans.h"
 
-// initialize gloabal variables
+// initialize global variables
 uint8_t g_number_of_accounts = 0;
 
 struct loan account [MAX_NUMBER_OF_ACCOUNTS];
