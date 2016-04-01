@@ -18,7 +18,7 @@
 // initialize gloabal variables
 
 
-// TODO: optomise 
+// TODO: optimize 
 // Remove number of days and account number
 float Calculate_Interest(struct loan *account,
 			 uint8_t account_number,
