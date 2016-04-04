@@ -9,6 +9,7 @@
 // include standard libs
 #include <stdio.h>
 #include <stdint.h>
+#include <string.h>
 #include <time.h>
 #include <inttypes.h>
 
@@ -30,7 +31,7 @@ int main()
 // TODO: BUG
 // Any name that begins with the letter D will pass this statment
 
-      if ( *account[i].name == *"done" )
+      if ( !strcmp(account[i].name, "done"))
 	  break;
 
 // TODO: BUG
