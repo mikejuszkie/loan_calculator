@@ -5,7 +5,7 @@
 
 
 CC = gcc
-CFLAGS = -Wall -g
+CFLAGS = -std=c99 -Wall -g
 BUILD_DIR = build
 OUTPUT = loan_calculator
 
