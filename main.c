@@ -5,7 +5,6 @@
  *
  *************************/
 
-
 // include standard libs
 #include <stdio.h>
 #include <stdint.h>
@@ -15,6 +14,7 @@
 
 // include custom headders
 #include "loans.h"
+
 
 // initialize global variables
 uint8_t g_number_of_accounts = 0;
@@ -28,16 +28,15 @@ int main()
       printf("Enter a name for account %d (enter \"done\" to finish):\n", i);
       scanf("%s", account[i].name);
 
-// TODO: BUG
-// Any name that begins with the letter D will pass this statment
 
+// This breaks the loop when the user enters "Done"
       if ( !strcmp(account[i].name, "done"))
 	  break;
 
 // TODO: BUG
 // Print out of large numbers result in incorrect printout.
 // Subition of a string for float variables results in multiple submissions.
-
+// one might say that people would not borrow that much money.
       printf("Enter inital loan ammount for account %d :\n", i);
       scanf("%f", &account[i].ammount);
       account[i].principle = account[i].ammount;
@@ -73,8 +72,9 @@ int main()
 
       account[i].total_paid = ( (float)account[i].monthly_payment * account[i].payments ) + account[i].principle;
 
-      // uncomment Line below for debug. 
-      // printf("Total cost of %s : $%10.2f \n", account[i].name, g_total_cost);
+      #ifdef DEBUG_ON 
+         printf("Total cost of %s : $%10.2f \n", account[i].name, account[i].total_paid);
+      #endif
     }
 
   // Print out final table of calculations 

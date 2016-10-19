@@ -17,17 +17,29 @@
 // has been already included
 #ifndef LOANS_H_DEF
 
+
+//DEBUG token
+#ifndef DEBUG_ON
+//   #define DEBUG_ON
+#endif
+
+
+// define constant for checking
+// if file is included
+ #define LOANS_H_DEF
+
+
 // Constant deffinitions
 
 // Set the maximum number of
 // accounts for the programm
-#ifndef MAX_NUMBER_OF_ACCOUNTS
+ #ifndef MAX_NUMBER_OF_ACCOUNTS
   #define MAX_NUMBER_OF_ACCOUNTS 10
  #endif
 
 // Sets the max number of characters
 // used in an account's name
-#ifndef MAX_ACCOUNT_NAME_LENGTH
+ #ifndef MAX_ACCOUNT_NAME_LENGTH
   #define MAX_ACCOUNT_NAME_LENGTH 10
  #endif
 // initialize structure
@@ -70,10 +82,5 @@
   #define DISPLAY_TABLE_DEF
  #endif
 
-
-
-// define constant for checking
-// if file is included
- #define LOANS_H_DEF
 
 #endif

@@ -27,9 +27,10 @@ float Calculate_Interest(struct loan *account,
   float total = (account[account_number].principle *
 		 ( (account[account_number].rate / 100 )/ 365) ) * number_of_days;
 
-// uncomment linve below for debug
-// printf("interest $%10.2f \n", total);
-  
+  #ifdef DEBUG_ON 
+    printf("interest $%10.2f \n", total);
+  #endif  
+
   return total;
 }
 
@@ -51,9 +52,10 @@ uint16_t Calculate_Payments(struct loan* account,
 	(account[account_number].interest - payment);
       account[account_number].payments++;
 
-      // Uncomment lines below for debug
-      //printf("Payments: %4d", account[account_number].payments);
-      //printf("\tPrinciple: %10.2f\n", account[account_number].principle);
+      #ifdef DEBUG_ON 
+        printf("Payments: %4d", account[account_number].payments);
+        printf("\tPrinciple: %10.2f\n", account[account_number].principle);
+      #endif
 
     }
 
