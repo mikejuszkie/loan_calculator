@@ -20,7 +20,15 @@
 
 //DEBUG token
 #ifndef DEBUG_ON
-//   #define DEBUG_ON
+   #define DEBUG_ON 1
+#endif
+
+#ifndef DEBUG_OFF
+   #define DEBUG_OFF 0
+#endif
+
+#ifndef DEBUG_LEVEL
+  #define DEBUG_LEVEL 0
 #endif
 
 

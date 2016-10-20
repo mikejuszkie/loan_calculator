@@ -72,7 +72,7 @@ int main()
 
       account[i].total_paid = ( (float)account[i].monthly_payment * account[i].payments ) + account[i].principle;
 
-      #ifdef DEBUG_ON 
+      #if DEBUG_LEVEL
          printf("Total cost of %s : $%10.2f \n", account[i].name, account[i].total_paid);
       #endif
     }
