@@ -23,6 +23,11 @@ struct loan account [MAX_NUMBER_OF_ACCOUNTS];
 
 int main()
 {
+
+#ifdef DEBUG
+	printf("########### debug build ##############\n");
+#endif
+
   for(int i =0 ; i <= MAX_NUMBER_OF_ACCOUNTS - 1; i++)
     {
       printf("Enter a name for account %d (enter \"done\" to finish):\n", i);
