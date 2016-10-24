@@ -25,8 +25,8 @@ build/main.o: main.c
 build/loans.o: loans.h loans.c
 	$(CC) -c $(CFLAGS) -o $(BUILD_DIR)/loans.o loans.c
 
-debug : CFLAGS += -D DEBUG
-debug : $(OUTPUT)
+debug: CFLAGS += -D DEBUG
+debug: $(OUTPUT)
 
 clean:
 	rm -r -f $(BUILD_DIR)/*.o

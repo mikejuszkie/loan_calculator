@@ -25,7 +25,7 @@ int main()
 {
 
 #ifdef DEBUG
-	printf("########### debug build ##############\n");
+	printf("\n\n########### debug build ##############\n\n\n");
 #endif
 
   for(int i =0 ; i <= MAX_NUMBER_OF_ACCOUNTS - 1; i++)
@@ -77,7 +77,7 @@ int main()
 
       account[i].total_paid = ( (float)account[i].monthly_payment * account[i].payments ) + account[i].principle;
 
-      #if DEBUG_LEVEL
+      #if defined(DEBUG) && DEBUG_LEVEL > 0
          printf("Total cost of %s : $%10.2f \n", account[i].name, account[i].total_paid);
       #endif
     }
