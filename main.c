@@ -46,11 +46,11 @@ int main()
 // Print out of large numbers result in incorrect printout.
 // Subition of a string for float variables results in multiple submissions.
 // one might say that people would not borrow that much money.
-      printf("Enter inital loan ammount for account %d :\n", i);
+      printf("Enter inital loan ammount for account %s :\n", account[i].name);
       scanf("%f", &account[i].ammount);
       account[i].principle = account[i].ammount;
 
-      printf("Enter interest rate for account %d :\n", i);
+      printf("Enter interest rate for account %s :\n", account[i].name);
       scanf("%f", &account[i].rate);
       g_number_of_accounts++;
 

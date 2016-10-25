@@ -29,5 +29,6 @@ debug: $(OUTPUT)
 clean:
 	rm -r -f $(BUILD_DIR)/*.o
 	rm $(OUTPUT)
+	rm *~
 
 rebuild: clean build
