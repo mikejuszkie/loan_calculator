@@ -17,25 +17,14 @@
 // has been already included
 #ifndef LOANS_H_DEF
 
-
-//DEBUG token
-#ifndef DEBUG_ON
-   #define DEBUG_ON 1
-#endif
-
-#ifndef DEBUG_OFF
-   #define DEBUG_OFF 0
-#endif
-
-#ifndef DEBUG_LEVEL
-  #define DEBUG_LEVEL 1
-#endif
-
-
 // define constant for checking
 // if file is included
  #define LOANS_H_DEF
 
+// Debug Token
+ #ifndef DEBUG_LEVEL
+   #define DEBUG_LEVEL 1
+ #endif
 
 // Constant deffinitions
 
@@ -50,9 +39,10 @@
  #ifndef MAX_ACCOUNT_NAME_LENGTH
   #define MAX_ACCOUNT_NAME_LENGTH 10
  #endif
+
+
 // initialize structure
 // for number of accounts
- 
  struct loan {
    char name [MAX_ACCOUNT_NAME_LENGTH];
    float ammount;

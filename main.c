@@ -28,7 +28,11 @@ int main()
 	printf("\n\n########### debug build ##############\n\n\n");
 #endif
 
-  for(int i =0 ; i <= MAX_NUMBER_OF_ACCOUNTS - 1; i++)
+
+// for loop to start the initial input variables for each loan
+// MAX_NUMBER_OF_ACCOUNTS sets the total number of accounts
+// that is alowable.
+  for(int i =0 ; i < MAX_NUMBER_OF_ACCOUNTS ; i++)
     {
       printf("Enter a name for account %d (enter \"done\" to finish):\n", i);
       scanf("%s", account[i].name);
@@ -38,7 +42,7 @@ int main()
       if ( !strcmp(account[i].name, "done"))
 	  break;
 
-// TODO: BUG
+// TODO: BUG-2
 // Print out of large numbers result in incorrect printout.
 // Subition of a string for float variables results in multiple submissions.
 // one might say that people would not borrow that much money.
@@ -61,28 +65,36 @@ int main()
                 account[i].ammount, account[i].rate);
     }
 
+
+// TODO: add feature BUG-6
+// Add ability to choose for each loan the term agreement 
+// or the monthly payments as input.
+
+// loop to collect and calculate monthly payment information
   for(int i = 0 ; i < g_number_of_accounts ; i++)
     {
       printf("\nPlease enter your monthly contribution to %s:", account[i].name);
       scanf("%f", &account[i].monthly_payment);
 
+// force the user to re-enter a value for the monthly payments if that value is to small
       while(account[i].monthly_payment <= 1.25*(30*((account[i].ammount*(account[i].rate/100))/365)))
 	{
 	  printf("Payment amount is insuficient. Please try again.\n");
+	  printf("\nPlease enter your monthly contribution to %s:", account[i].name);
 	  scanf("%f", &account[i].monthly_payment);
-
 	}
 
       Calculate_Payments(account , i , account[i].monthly_payment);
 
-      account[i].total_paid = ( (float)account[i].monthly_payment * account[i].payments ) + account[i].principle;
+      account[i].total_paid = ( (float)account[i].monthly_payment * 
+			account[i].payments ) + account[i].principle;
 
       #if defined(DEBUG) && DEBUG_LEVEL > 0
          printf("Total cost of %s : $%10.2f \n", account[i].name, account[i].total_paid);
       #endif
     }
 
-  // Print out final table of calculations 
+// Print out final table of calculations 
   printf("\n%-20s| %-14s| %-14s| %-17s| %-19s| %-20s\n","Account","Loan Ammount",
 	 "Interest Rate", "Monthly Payments", "Number of Payments", "Total Paid Back");
   printf("-----------------------------------------------------------");

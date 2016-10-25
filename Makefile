@@ -9,8 +9,6 @@ CFLAGS = -std=c99 -Wall -g
 BUILD_DIR = build
 OUTPUT = loan_calculator
 
-#CFLAGS += -D DEBUG
-
 
 .PHONY: debug clean rebuild
 
